@@ -34,4 +34,28 @@ public:
     virtual ~MatrizEnTripletas(void) {delete _tripletas; }
 };
 
+inline int MatrizEnTripletas::numeroFilas()
+{
+    Tripleta t = _tripletas->first();
+    return t.fila();
+}
+
+inline int MatrizEnTripletas::numeroColumnas()
+{
+    Tripleta t = _tripletas->first();
+    return t.columna();
+}
+
+inline void MatrizEnTripletas::numeroElementos(int nroElementos)
+{
+    Tripleta t = _tripletas->first();
+    t.fila(nroElementos);
+}
+
+inline int MatrizEnTripletas::numeroElementos()
+{
+    Tripleta t = _tripletas->first();
+    return t.nroFicha();
+}
+
 #endif // MATRIZENTRIPLETAS_HPP

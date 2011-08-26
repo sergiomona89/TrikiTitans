@@ -15,3 +15,14 @@ MatrizEnTripletas::MatrizEnTripletas(int filas, int columnas, QObject * pParent)
     _tripletas->append(tripleta1);
     _tripletas->append(tripleta2);
 }
+
+void MatrizEnTripletas::asignaTripleta(Tripleta * tripleta, int posicion)
+{
+    _tripletas->append(_tripletas->last());
+    for(int i = _tripletas->count() - 2; i > posicion; i--)
+    {
+	_tripletas->insert(i, _tripletas->at(i - 1));
+    }
+    _tripletas->insert(posicion, * tripleta);
+    
+}
