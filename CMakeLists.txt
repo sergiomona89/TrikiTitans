@@ -17,11 +17,12 @@ include/Export.hpp
 set( TRIKITITANS_MOC_HDRS
 include/ClaseA.hpp
 include/Tripleta.hpp
-include/MatrizEnTripletas.hpp 
+include/MatrizEnTripletas.hpp
 )
 
 SET( TRIKITITANS_SRCS 
 src/MatrizEnTripletas.cpp 
+src/Tripleta.cpp
 src/ClaseA.cpp
 )
 

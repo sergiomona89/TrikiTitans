@@ -6,10 +6,12 @@
 #define TRIPLETA_HPP
 
 #include<Export.hpp>
+#include<QObject>
 #include<QString>
 
-class TRIKI_EXPORT Tripleta
+class TRIKI_EXPORT Tripleta: public QObject
 {
+    Q_OBJECT
 private:
     int _fila;
     int _columna;
@@ -17,7 +19,9 @@ private:
     QString _ip;
 
 public:
-    Tripleta(int fila, int columna, int nroFicha = 0, QString ip = ""): _fila(fila), _columna(columna), _nroFicha(nroFicha), _ip(ip) {}
+    Tripleta(const Tripleta &tripleta, QObject * pParent = 0);
+    Tripleta(int fila, int columna, int nroFicha = 0, QString ip = QString(""), QObject * pParent = 0): QObject(pParent), _fila(fila), _columna(columna), _nroFicha(nroFicha), _ip(ip) {};
+
     int fila(void);
     int columna(void);
     QString ip(void);
@@ -26,7 +30,8 @@ public:
     void nroFicha(int nroFicha);
     void fila(int fila);
     void columna(int columna);
-    virtual ~Tripleta(void) {}
+
+    Tripleta& operator=(const Tripleta &tripleta);
 };
 
 inline int Tripleta::fila()

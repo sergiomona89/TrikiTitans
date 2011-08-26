@@ -6,18 +6,22 @@
 #define MATRIZENTRIPLETAS_HPP
 
 #include <Tripleta.hpp>
-#include <QVector>
+#include <QList>
 
-class TRIKI_EXPORT MatrizEnTripletas
+typedef QList<Tripleta> List;
+
+class TRIKI_EXPORT MatrizEnTripletas: public QObject
 {
+    Q_OBJECT
 private:
-    QVector<Tripleta> * _tripletas;
-    
+    List * _tripletas;
+
     void numeroElementos(int nroElementos);
     void asignaTripleta(Tripleta * tripleta, int posicion);
-    
+
 public:
-    MatrizEnTripletas(int filas, int columnas);
+    MatrizEnTripletas(int filas, int columnas, QObject * pParent = 0);
+
     int numeroFilas(void);
     int numeroColumnas(void);
     int numeroElementos(void);
@@ -28,7 +32,6 @@ public:
     Tripleta * tripleta(int fila, int columna);
     void muestraMatriz(void);
     virtual ~MatrizEnTripletas(void) {delete _tripletas; }
-    
 };
 
 #endif // MATRIZENTRIPLETAS_HPP
