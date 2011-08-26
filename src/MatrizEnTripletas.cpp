@@ -7,8 +7,10 @@
 MatrizEnTripletas::MatrizEnTripletas(int filas, int columnas)
 {
     _tripletas = new QVector<Tripleta>;
-    Tripleta * tripleta = new Tripleta();//corregir la estructura de la tripleta 
-					 //ya que necesito llevar un conteo de ellas. y no tengo ese campo
-					 //quedaria posiblemente como cuarteta.
+    Tripleta * tripleta = new Tripleta(filas, columnas, 0, "");
+    _tripletas->append(* tripleta);
+    tripleta = new Tripleta(filas + 1, columnas + 1, 0, "");
+    _tripletas->append(* tripleta);
+    delete tripleta;
 }
 

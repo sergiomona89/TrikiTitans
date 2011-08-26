@@ -16,7 +16,6 @@ include/Export.hpp
 
 set( TRIKITITANS_MOC_HDRS
 include/ClaseA.hpp
-include/Ficha.hpp
 include/Tripleta.hpp
 include/MatrizEnTripletas.hpp 
 )

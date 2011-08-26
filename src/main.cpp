@@ -3,7 +3,7 @@
 using namespace std;
 
 #include <ClaseA.hpp>
-#include <Tripleta.hpp>
+#include <MatrizEnTripletas.hpp>
 
 int main(){
     cout << "hola mundo!!!" << endl;

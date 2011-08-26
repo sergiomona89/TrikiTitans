@@ -5,24 +5,28 @@
 #ifndef TRIPLETA_HPP
 #define TRIPLETA_HPP
 
-#include <Ficha.hpp>
+#include<Export.hpp>
+#include<QString>
 
 class TRIKI_EXPORT Tripleta
 {
 private:
     int _fila;
     int _columna;
-    Ficha * _ficha;
+    int _nroFicha;
+    QString _ip;
 
 public:
-    Tripleta(int fila, int columna, Ficha * ficha = 0): _fila(fila), _columna(columna), _ficha(ficha) {}
+    Tripleta(int fila, int columna, int nroFicha = 0, QString ip = ""): _fila(fila), _columna(columna), _nroFicha(nroFicha), _ip(ip) {}
     int fila(void);
     int columna(void);
-    Ficha * ficha(void);
+    QString ip(void);
+    int nroFicha(void);
+    void ip(QString ip);
+    void nroFicha(int nroFicha);
     void fila(int fila);
     void columna(int columna);
-    void ficha(Ficha * ficha);
-    virtual ~Tripleta(void) { delete _ficha; }
+    virtual ~Tripleta(void) {}
 };
 
 inline int Tripleta::fila()
@@ -35,9 +39,24 @@ inline int Tripleta::columna()
     return _columna;
 }
 
-inline Ficha * Tripleta::ficha()
+inline QString Tripleta::ip()
 {
-    return _ficha;
+    return _ip;
+}
+
+inline int Tripleta::nroFicha()
+{
+    return _nroFicha;
+}
+
+inline void Tripleta::ip(QString ip)
+{
+    _ip = ip;
+}
+
+inline void Tripleta::nroFicha(int nroFicha)
+{
+    _nroFicha = nroFicha;
 }
 
 inline void Tripleta::fila(int fila)
@@ -48,11 +67,6 @@ inline void Tripleta::fila(int fila)
 inline void Tripleta::columna(int columna)
 {
     _columna = columna;
-}
-
-inline void Tripleta::ficha(Ficha * ficha)
-{
-    _ficha = ficha;
 }
 
 #endif // TRIPLETA_HPP
