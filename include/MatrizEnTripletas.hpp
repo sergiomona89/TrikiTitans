@@ -7,6 +7,7 @@
 
 #include <Tripleta.hpp>
 #include <QList>
+#include <iostream>
 
 typedef QList<Tripleta> List;
 
@@ -17,7 +18,7 @@ private:
     List * _tripletas;
 
     void numeroElementos(int nroElementos);
-    void asignaTripleta(Tripleta * tripleta, int posicion);
+    void asignaTripleta(Tripleta tripleta, int posicion);
 
 public:
     MatrizEnTripletas(int filas, int columnas, QObject * pParent = 0);
@@ -26,35 +27,36 @@ public:
     int numeroColumnas(void);
     int numeroElementos(void);
     void borraTripleta(int posicion);
-    void insertaTripleta(Tripleta * tripleta);
+    void insertaTripleta(Tripleta tripleta);
     bool existeTripleta(int fila, int columna);
-    Tripleta * tripleta(int posicion);
-    Tripleta * tripleta(int fila, int columna);
+    Tripleta tripleta(int posicion);
+    Tripleta tripleta(int fila, int columna);
     void muestraMatriz(void);
     virtual ~MatrizEnTripletas(void) {delete _tripletas; }
 };
 
 inline int MatrizEnTripletas::numeroFilas()
 {
-    Tripleta t = _tripletas->first();
+    Tripleta t = _tripletas->at(0);
     return t.fila();
 }
 
 inline int MatrizEnTripletas::numeroColumnas()
 {
-    Tripleta t = _tripletas->first();
+    Tripleta t = _tripletas->at(0);
     return t.columna();
 }
 
 inline void MatrizEnTripletas::numeroElementos(int nroElementos)
 {
-    Tripleta t = _tripletas->first();
-    t.fila(nroElementos);
+    Tripleta t = _tripletas->at(0);
+    t.nroFicha(nroElementos);
+    _tripletas->replace(0, t);
 }
 
 inline int MatrizEnTripletas::numeroElementos()
 {
-    Tripleta t = _tripletas->first();
+    Tripleta t = _tripletas->at(0);
     return t.nroFicha();
 }
 
