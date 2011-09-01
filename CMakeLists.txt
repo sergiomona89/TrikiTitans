@@ -18,9 +18,11 @@ set( TRIKITITANS_MOC_HDRS
 include/ClaseA.hpp
 include/Tripleta.hpp
 include/MatrizEnTripletas.hpp
+include/Tablero.hpp 
 )
 
-SET( TRIKITITANS_SRCS 
+SET( TRIKITITANS_SRCS
+src/Tablero.cpp 
 src/MatrizEnTripletas.cpp 
 src/Tripleta.cpp
 src/ClaseA.cpp

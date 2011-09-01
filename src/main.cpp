@@ -31,5 +31,9 @@ int main(){
     t = new Tripleta(1,4);
     m->insertaTripleta(*t);
     m->muestraMatriz();
+    cout << "hola mundo!!!" << endl;
+    t = new Tripleta(4,4);
+    m->insertaTripleta(*t);
+    m->muestraMatriz();
     return 0;
 }

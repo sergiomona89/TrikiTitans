@@ -89,6 +89,8 @@ Tripleta MatrizEnTripletas::tripleta(int fila, int columna)
 	    }
 	}
     }
+    Tripleta t(-1, -1);
+    return t;
 }
 
 void MatrizEnTripletas::muestraMatriz(void)
