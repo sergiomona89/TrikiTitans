@@ -3,7 +3,7 @@
 using namespace std;
 
 #include <ClaseA.hpp>
-#include <MatrizEnTripletas.hpp>
+#include <Tablero.hpp>
 
 int main(){
     cout << "hola mundo!!!" << endl;
@@ -14,7 +14,7 @@ int main(){
     m->insertaTripleta(*t);
     m->muestraMatriz();
     cout << "hola mundo!!!" << endl;
-    t = new Tripleta(1,3);
+    t = new Tripleta(1,9);
     m->insertaTripleta(*t);
     m->muestraMatriz();
     cout << "hola mundo!!!" << endl;

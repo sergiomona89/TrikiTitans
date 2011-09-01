@@ -19,9 +19,11 @@ include/ClaseA.hpp
 include/Tripleta.hpp
 include/MatrizEnTripletas.hpp
 include/Tablero.hpp 
+include/TableroVisual.hpp
 )
 
 SET( TRIKITITANS_SRCS
+src/TableroVisual.cpp
 src/Tablero.cpp 
 src/MatrizEnTripletas.cpp 
 src/Tripleta.cpp
@@ -29,6 +31,7 @@ src/ClaseA.cpp
 )
 
 SET(TRIKITITANS_UIS
+ui/TableroVisual.ui
 )
 
 QT4_WRAP_UI( TRIKITITANS_HDRS_UIS

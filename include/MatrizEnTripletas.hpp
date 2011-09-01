@@ -29,8 +29,10 @@ public:
     void borraTripleta(int posicion);
     void insertaTripleta(Tripleta tripleta);
     bool existeTripleta(int fila, int columna);
+    bool existeTripleta(int numFicha, QString ip);
     Tripleta tripleta(int posicion);
     Tripleta tripleta(int fila, int columna);
+    int tripleta(int numFicha, QString ip);
     void muestraMatriz(void);
     virtual ~MatrizEnTripletas(void) {delete _tripletas; }
 };

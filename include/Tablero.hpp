@@ -14,10 +14,9 @@ private:
     MatrizEnTripletas _tablero;
     
 public:
-    Tablero(const Tablero &tablero, QObject* parent = 0);
-    Tablero(void): _tablero(3,3) {}
-    void insertarFicha(int fila, int columna, QString ip);
-    void moverFicha(int fila, int columna, int numFicha, QString ip);
+    Tablero(QObject* parent = 0): QObject(parent), _tablero(3,3) {}
+    bool insertarFicha(int fila, int columna, int numFicha, QString ip);
+    bool moverFicha(int fila, int columna, int numFicha, QString ip);
     bool ganar(QString ip);
 };
 

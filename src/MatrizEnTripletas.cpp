@@ -9,8 +9,8 @@ MatrizEnTripletas::MatrizEnTripletas(int filas, int columnas, QObject * pParent)
 {
     _tripletas = new List;
     
-    Tripleta tripleta1(filas, columnas, 0, "");
-    Tripleta tripleta2(filas + 1, columnas + 1, 0, "");
+    Tripleta tripleta1(filas, columnas);
+    Tripleta tripleta2(filas + 1, columnas + 1);
 
     _tripletas->append(tripleta1);
     _tripletas->append(tripleta2);
@@ -70,6 +70,21 @@ bool MatrizEnTripletas::existeTripleta(int fila, int columna)
     return existe;
 }
 
+bool MatrizEnTripletas::existeTripleta(int numFicha, QString ip)
+{
+    bool existe = false;
+    for (int i = 1; i < _tripletas->count(); i++)
+    {
+	Tripleta t = _tripletas->at(i);
+	if (t.nroFicha() == numFicha && t.ip() == ip)
+	{
+	    existe = true;
+	    return existe;
+	}
+    }
+    return existe;
+}
+
 Tripleta MatrizEnTripletas::tripleta(int posicion)
 {
     return _tripletas->at(posicion);
@@ -80,7 +95,7 @@ Tripleta MatrizEnTripletas::tripleta(int fila, int columna)
 {
     if (existeTripleta(fila, columna))
     {
-	for (int i = 1; i <= _tripletas->count(); i++)
+	for (int i = 1; i < _tripletas->count(); i++)
 	{
 	    Tripleta t = _tripletas->at(i);
 	    if (t.fila() == fila && t.columna() == columna)
@@ -91,6 +106,22 @@ Tripleta MatrizEnTripletas::tripleta(int fila, int columna)
     }
     Tripleta t(-1, -1);
     return t;
+}
+
+int MatrizEnTripletas::tripleta(int numFicha, QString ip)
+{
+    if (existeTripleta(numFicha, ip))
+    {
+	for (int i = 1; i < _tripletas->count(); i++)
+	{
+	    Tripleta t = _tripletas->at(i);
+	    if (t.nroFicha() == numFicha && t.ip() == ip)
+	    {
+		return i;
+	    }
+	}
+    }
+    return -1;
 }
 
 void MatrizEnTripletas::muestraMatriz(void)
