@@ -27,11 +27,16 @@ void Servidor::aceptarConeccion()
 
 void Servidor::iniciarLectura()
 {
-    QDataStream entrada(_cliente);
-    entrada.setVersion(VERSION);
-    char * p;
-    entrada >> p;
-    
-    const char * p2 = p;
-    _cliente->write(p2);
+    QDataStream in(_cliente);
+    in.setVersion(VERSION);
+    QString p;
+    in >> p;
+
+    QByteArray block;
+    QDataStream out(&block, QIODevice::WriteOnly);
+    out.setVersion(VERSION);
+    out << p;
+    out.device()->seek(0);
+    _cliente->write(block);
+    _cliente->flush();
 }
