@@ -2,7 +2,7 @@
 PROJECT(TrikiTitans)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-FIND_PACKAGE(Qt4)
+FIND_PACKAGE(Qt4 REQUIRED QtNetwork QtCore QtGui)
 
 INCLUDE( ${QT_USE_FILE} )
 
@@ -20,9 +20,13 @@ include/Tripleta.hpp
 include/MatrizEnTripletas.hpp
 include/Tablero.hpp 
 include/TableroVisual.hpp
+include/Cliente.hpp
+include/Servidor.hpp
 )
 
 SET( TRIKITITANS_SRCS
+src/Servidor.cpp
+src/Cliente.cpp
 src/TableroVisual.cpp
 src/Tablero.cpp 
 src/MatrizEnTripletas.cpp 
@@ -49,6 +53,8 @@ ${TRIKITITANS_MOC_SRCS}
 ${TRIKITITANS_SRCS}
 )
 
-ADD_EXECUTABLE(main src/main.cpp)
+ADD_EXECUTABLE(cliente src/MainCliente.cpp)
+ADD_EXECUTABLE(servidor src/MainServidor.cpp)
 
-TARGET_LINK_LIBRARIES( main triki ${QT_LIBRARIES} )
+TARGET_LINK_LIBRARIES( cliente triki ${QT_LIBRARIES} )
+TARGET_LINK_LIBRARIES( servidor triki ${QT_LIBRARIES} )

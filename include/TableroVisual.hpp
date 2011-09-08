@@ -12,6 +12,17 @@
 class TRIKI_EXPORT TableroVisual : public QWidget, Ui::TableroVisual
 {
     Q_OBJECT
+    
+public:
+    TableroVisual(QWidget* parent = 0);
+    ~TableroVisual();
+    
+public slots:
+    void prueba();
+    void iniciarLectura();
+    
+private:
+    Cliente * _cliente;
 };
 
 #endif // TABLEROVISUAL_HPP

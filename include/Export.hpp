@@ -1,6 +1,13 @@
 
 #ifndef EXPORT_HPP
 #define ESPORT_HPP
+#define PUERTO			quint16(3490)
+#define VERSION			QDataStream::Qt_4_0
+#include<QDataStream>
+
+//enum peticion {
+//    primerPrueba //primer prueba;
+//};
 
 #ifdef __WIN32
 #  ifdef triki_EXPORTS

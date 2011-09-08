@@ -5,6 +5,7 @@
 
 #include<QObject>
 #include<MatrizEnTripletas.hpp>
+#include<Cliente.hpp>
 
 class TRIKI_EXPORT Tablero: public QObject
 {
